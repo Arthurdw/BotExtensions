@@ -47,7 +47,8 @@ class RoleNotifier(Cog):
             if role.id not in self.specific_roles:
                 return
 
-        await self.embed(user, role_notifier[state].get("content", "Invalid lang.py").format(role=role, guild=guild),
+        await self.embed(user, role_notifier[state].get("content", "Invalid lang.py").format(role=role, guild=guild,
+                                                                                             user=user),
                          title=role_notifier[state].get("title", "Invalid lang.py"),
                          footer=Footer(
                              role_notifier[state]["footer"].get("text", "Invalid lang.py"),
