@@ -47,3 +47,36 @@ role_notifier = {
     }
 }
 ```
+
+## Configuration
+
+#### config.cfg
+
+```cfg
+[ROLE_NOTIFIER]
+enabled = true <- If this extension should be enabled, set to `false` to disable.
+specific = false <- If the bot should only dm for specific roles. (requires the `role param`)
+roles = first_role_id, second_role_id, ... <- The role ids for the specific value. (delimited by a `, `)
+```
+
+#### lang.py
+
+```py
+role_notifier = {
+    "added": {
+        "title": "Role received!", <- The title for the embed.
+        "content": "You have received the <@{role.id}> ({role.name}) role in {guild.name}!", <- The message for the embed. (valid format values are: {user.*}, {role.*}, {guild.*})
+        "footer": {
+            "text": "Role Notifier", <- The footer message.
+            "icon": "{guild.icon_url}", <- The footer icon. (Valid format argument: {guild.*} | must be a valid url)
+            "timestamp": True <- If a dynamic timestamp should be applied to the footer.
+        },
+        "color": {
+            "random": False, <- If this is `True` the embed color will be random.
+            "color": 0x00ff00 <- The embed color, requires `random` to be `False`. (0x represents the # in a hex value)
+        }
+    },
+    "removed": { ... } <- same principe
+}
+```
+
