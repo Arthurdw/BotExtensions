@@ -351,7 +351,7 @@ class ExpSystem(Cog):
             top
 
             // Get the top 15 members
-            top 123456789987654321
+            top 15
         """
         if 1 <= amount <= exp_system.get("max_top", 25):
             return await self.embed(ctx, "\n".join(
